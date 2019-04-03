@@ -1,0 +1,26 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let feed of service.feedList">          
+    <div class="row">
+      <div class="col-1 bg-light text-dark">                  
+        <span class="fa fa-arrow-up text-ceter" aria-hidden="true"></span><br>
+        <span class="text-ceter">{{feed.score}}</span><br>
+        <span class="fa fa-arrow-down text-ceter" aria-hidden="true"></span>
+      </div>  
+      <div class="col-11">
+          <small>Posted by u/{{feed.author}} <b>{{feed.author_flair_text}}</b> {{util.getPostedTime(feed.created)}} ago</small>
+          <div class="d-flex w-100 justify-content-between">
+            <a [routerLink]="" (click)="gotoDetail(feed)">{{feed.title}}</a>            
+          </div>          
+          <p class="mb-1" [innerHTML]=util.toHTML(feed.selftext_html) *ngIf="feed.selftext_html"></p>
+          <img [src]='feed.thumbnail' *ngIf="feed.thumbnail !== 'self'"/> <br>
+          <small class="social">
+            <span>
+              <i class="fa fa-comment" aria-hidden="true"></i>{{feed.num_comments}} Comments 
+            </span>
+            <span><i class="fa fa-share" aria-hidden="true"></i>Share </span>
+            <span><i class="fa fa-plus-square" aria-hidden="true"></i>Save</span>            
+          </small>
+      </div>   
+    </div>
+  </li>
+</ul>

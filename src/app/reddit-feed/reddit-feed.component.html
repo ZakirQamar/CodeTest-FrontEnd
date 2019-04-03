@@ -1,0 +1,27 @@
+<!-- Search form -->
+<form class="form-inline" (submit)="getList()">
+  <input class="form-control form-control mr-3 w-75" type="text" placeholder="Search" 
+  [(ngModel)]="service.searchData.SubReddit" name="SubReddit" aria-label="Search">
+  <i class="fas fa-search" aria-hidden="true" (click)="getList()"></i>
+</form>
+<hr>
+
+<div class="form-inline">
+    <div class="col-6">    
+       <button [disabled]='!service.searchData.Before' (click)='service.getPreviousList()' class="btn btn-info"  style="margin-right: 5px;">Previous</button>
+       <button [disabled]='!service.searchData.After' (click)='service.getNextList()' class="btn btn-info">Next</button>   
+   </div>
+   <div class="col-6">
+     <div class="form-group float-right">
+       <label for="selPageSize">Page size:</label>
+       <select class="form-control" [(ngModel)]="service.searchData.Limit" name="pageSize" 
+       id="selPageSize"  style="margin-left: 5px;" (change)='getList()'>
+         <option>5</option>
+         <option>10</option>
+         <option>25</option>  
+       </select>
+     </div> 
+   </div>
+ </div>
+<br>
+<app-reddit-feed-list></app-reddit-feed-list>

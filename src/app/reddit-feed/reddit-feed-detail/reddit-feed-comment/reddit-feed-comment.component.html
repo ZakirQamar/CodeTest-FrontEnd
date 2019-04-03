@@ -1,0 +1,28 @@
+<br>
+<div *ngFor="let comment of comments">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="thread-line">        
+      </div>
+      <div class="comment">
+      <div class="up-down-vote">                  
+          <span class="fa fa-arrow-up text-ceter" aria-hidden="true"></span>         
+          <span class="fa fa-arrow-down text-ceter" aria-hidden="true"></span>
+        </div> 
+      <div>
+          <small><b>{{comment.data.author}}</b> - {{util.getPostedTime(comment.data.created)}} ago</small> <br>
+          <p [innerHTML]=util.toHTML(comment.data.body_html)></p>
+          <div class="social">
+            <span>
+              <i class="fa fa-comment" aria-hidden="true"></i>Reply 
+            </span>
+            <span>Share</span>
+            <span>Report</span>
+            <span>Save</span>
+          </div>          
+          <app-reddit-feed-comment [comments]='comment.data.replies.data.children' *ngIf="comment.data.replies"></app-reddit-feed-comment>
+      </div>
+    </div>
+    </li>
+  </ul>
+</div>

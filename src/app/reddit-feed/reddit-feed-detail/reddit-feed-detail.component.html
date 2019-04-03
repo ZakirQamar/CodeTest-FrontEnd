@@ -1,0 +1,27 @@
+<div class="row" style="padding: 5px;">
+  <a class="btn btn-info" [routerLink]="[ '/feed' ]">Back</a>    
+</div>
+
+<div class="row border">
+  <div style="margin: 5px;">
+    <small>Posted by u/{{service.feedDetail.author}} <b>{{service.feedDetail.author_flair_text}}</b> {{util.getPostedTime(service.feedDetail.created)}} ago</small>
+    <div class="d-flex w-100 justify-content-between">
+      <a [routerLink]="">{{service.feedDetail.title}}</a>            
+    </div>          
+    <p class="mb-1" [innerHTML]=util.toHTML(service.feedDetail.selftext_html) *ngIf="service.feedDetail.selftext_html"></p>
+    <img [src]='service.feedDetail.thumbnail' *ngIf="service.feedDetail.thumbnail !== 'self'"/> <br>
+    <small class="social">
+      <span>
+        <i class="fa fa-comment" aria-hidden="true"></i>{{service.feedDetail.num_comments}} Comments 
+      </span>
+      <span><i class="fa fa-share" aria-hidden="true"></i>Share </span>
+      <span><i class="fa fa-plus-square" aria-hidden="true"></i>Save</span>            
+    </small>
+  </div>
+</div>
+
+<div class="row">
+  <app-reddit-feed-comment [comments]='service.feedCommentList'></app-reddit-feed-comment>
+</div>
+
+
