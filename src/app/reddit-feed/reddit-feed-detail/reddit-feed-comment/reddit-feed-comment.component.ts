@@ -8,7 +8,7 @@ import { UtilService } from 'src/app/shared/util.service';
 })
 export class RedditFeedCommentComponent implements OnInit {
   @Input() comments;
-  constructor(private util: UtilService) { }
+  constructor(public util: UtilService) { }
 
   ngOnInit() {
   }

@@ -10,7 +10,7 @@ import { UtilService } from 'src/app/shared/util.service';
 })
 export class RedditFeedDetailComponent implements OnInit {
 
-  constructor(private service: RedditService, private router: Router, private util: UtilService) { }
+  constructor(public service: RedditService, public router: Router, public util: UtilService) { }
 
   ngOnInit() {
     if (!this.service.feedDetail) {

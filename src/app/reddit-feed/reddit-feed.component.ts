@@ -8,7 +8,7 @@ import { RedditService } from '../shared/reddit.service';
 })
 export class RedditFeedComponent implements OnInit {
 
-  constructor(private service: RedditService) { }
+  constructor(public service: RedditService) { }
 
   ngOnInit() {
     this.service.searchData = {

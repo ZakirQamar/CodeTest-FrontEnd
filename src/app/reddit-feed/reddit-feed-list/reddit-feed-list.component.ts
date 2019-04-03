@@ -12,7 +12,7 @@ import { utils } from 'protractor';
 })
 export class RedditFeedListComponent implements OnInit {
 
-  constructor(private service: RedditService, private util: UtilService, private router: Router) { }
+  constructor(public service: RedditService, public util: UtilService, public router: Router) { }
 
   ngOnInit() {
   }
